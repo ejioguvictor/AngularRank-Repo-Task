@@ -8,14 +8,45 @@ function Cards() {
   return (
     <div className="container-fluid d-flex justify-content-center">
       <div className="row">
-        <div className="col-md-4">
-          <CardUI img={img1} />
+        <div className="col-md-3">
+          <CardUI
+            img={img1}
+            title="Developer"
+            contributions={20}
+            followers={200}
+            publicRepos={50}
+            publicGists={90}
+          />
         </div>
-        <div className="col-md-4">
-          <CardUI img={img2} />
+        <div className="col-md-3">
+          <CardUI
+            img={img2}
+            title="QA"
+            contributions={20}
+            followers={200}
+            publicRepos={50}
+            publicGists={90}
+          />
         </div>
-        <div className="col-md-4">
-          <CardUI img={img3} />
+        <div className="col-md-3">
+          <CardUI
+            img={img3}
+            title="Frontend Developer"
+            contributions={20}
+            followers={200}
+            publicRepos={50}
+            publicGists={90}
+          />
+        </div>
+        <div className="col-md-3">
+          <CardUI
+            img={img3}
+            title="Software Engineer"
+            contributions={20}
+            followers={200}
+            publicRepos={50}
+            publicGists={90}
+          />
         </div>
       </div>
     </div>

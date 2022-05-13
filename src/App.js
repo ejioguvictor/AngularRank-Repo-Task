@@ -1,10 +1,15 @@
 import React from "react";
-import MemberCard from "./components/card/card";
+import Cards from "./components/cardUI/Cards";
+// import MemberCard from "./components/card/card";
+// import CardUI from "./components/cardUI/CardUI";
+// import NavBar from "./components/navbar";
 
 function App() {
   return (
     <div>
-      <MemberCard />
+      {/* <NavBar /> */}
+      <Cards />
+      {/* <MemberCard /> */}
     </div>
   );
 }

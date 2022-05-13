@@ -24,8 +24,7 @@ function MemberCard() {
             Contributors
           </Typography>
           <Typography variant="body2" color="white">
-            <h3>Followers</h3>
-            <h3>Repos</h3>
+            Followers
           </Typography>
         </CardContent>
         <CardActions>

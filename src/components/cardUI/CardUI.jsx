@@ -1,6 +1,8 @@
 import React from "react";
 // import img1 from "../../images/pix1.jpeg";
 import "./card.styles.css";
+import { Link } from "react-router-dom";
+import UserProfile from "../contributorProfile/UserProfile";
 
 const CardUI = (props) => {
   return (
@@ -27,9 +29,9 @@ const CardUI = (props) => {
           <h5 className="card-text text-secondary">
             public gists: {props.publicGists}
           </h5>
-          <a href="/contributor" className="btn btn-outline-success ">
+          <Link to="/userprofile" className="btn btn-outline-success ">
             More Details
-          </a>
+          </Link>
         </div>
       </div>
     </div>

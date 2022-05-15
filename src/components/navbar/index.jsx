@@ -1,6 +1,6 @@
 import angular from "../../images/angular.png";
 import "./navbar.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
@@ -9,13 +9,13 @@ export default function NavBar() {
       style={{ backgroundColor: "#198754", border: "1px solid #ccc" }}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="!#">
+        <a className="navbar-brand" href="/">
           <img
             src={angular}
             style={{ width: "60px", height: "60px" }}
             alt="Logo"
           />
-          Angular
+          AngularRepo
         </a>
         <button
           className="navbar-toggler"
@@ -28,14 +28,14 @@ export default function NavBar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="!#">
+              <Link className="nav-link active" aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" href="!#">
-                Components
-              </a>
+              <Link className="nav-link active" to="/contributors">
+                Contributors
+              </Link>
             </li>
           </ul>
         </div>

@@ -44,7 +44,7 @@ function App() {
 
           <Route
             exact
-            path="/userprofile"
+            path="/userprofile/:id"
             element={<UserProfilePage />}
           />
           <Route

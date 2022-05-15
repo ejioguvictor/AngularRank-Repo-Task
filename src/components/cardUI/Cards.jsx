@@ -4,15 +4,15 @@ import img1 from "../../images/pix1.jpeg";
 import img2 from "../../images/pix2.jpeg";
 import img3 from "../../images/pix3.jpeg";
 import Loaders from "react-loading-icons";
+import { Link } from "react-router-dom";
+import "./card.styles.css";
 
-// import { BASE_URL } from "../../constant/contstant";
 import axios from "axios";
 
 function Cards() {
   const [isLoading, setIsLoading] = useState([]);
   const [angularData, setAngularData] = useState(true);
 
-  // const url = `https://api.github.com/orgs/Angular`;
   const url = `${process.env.REACT_APP_GITHUB_URL}/orgs/Angular`;
 
   const getAngularContributors = async () => {
@@ -168,22 +168,40 @@ function Cards() {
     );
 
     setAngularData(sortedPublicGists);
+
+    console.log(angularData);
   };
 
   return (
-    <div className="container-fluid d-flex justify-content-center">
-      <div className="row">
-        <div className="col-md-3 col-sm-6 mb-4">
-          <CardUI
-            img={img1}
-            title="Developer"
-            contributions={20}
-            followers={200}
-            publicRepos={50}
-            publicGists={90}
-          />
-        </div>
-        <div className="col-md-3 col-sm-6 mb-3">
+    <div>
+      {angularData.length > 0 &&
+        angularData.map((contributors) => (
+          // <div className="container-fluid d-grid justify-content-center">
+          <div className="wrapper">
+            {/* <div className="row"> */}
+            {/* <div className="wrapper"> */}
+
+            <CardUI
+              contributors={contributors}
+              key={contributors.id}
+              img={contributors.avatarUrl}
+              title={contributors.name}
+              contributions={contributors.contribution}
+              followers={contributors.followers}
+              publicRepos={contributors.public_repos}
+              publicGists={contributors.public_gists}
+              // data={angularData}
+            />
+            {/* <Link
+              className="btn btn-outline-success "
+              to={`/userprofile/${contributors.login}`}
+              state={{ contributors }}
+            >
+              <button className="btn">More Details</button>
+            </Link> */}
+
+            {/* </div> */}
+            {/* <div className="col-md-3 col-sm-6 mb-3">
           <CardUI
             img={img2}
             title="QA"
@@ -191,6 +209,7 @@ function Cards() {
             followers={200}
             publicRepos={50}
             publicGists={90}
+
           />
         </div>
         <div className="col-md-3 col-sm-6 mb-3">
@@ -212,8 +231,10 @@ function Cards() {
             publicRepos={50}
             publicGists={90}
           />
-        </div>
-      </div>
+        </div> */}
+            {/* </div> */}
+          </div>
+        ))}
     </div>
   );
 }

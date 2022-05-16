@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
 import CardUI from "./CardUI";
-import img1 from "../../images/pix1.jpeg";
-import img2 from "../../images/pix2.jpeg";
-import img3 from "../../images/pix3.jpeg";
-import Loaders from "react-loading-icons";
-import { Link } from "react-router-dom";
 import "./card.styles.css";
-
 import axios from "axios";
+import { TailSpin } from "react-loader-spinner";
 
 function Cards() {
-  const [isLoading, setIsLoading] = useState([]);
-  const [angularData, setAngularData] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [angularData, setAngularData] = useState([]);
 
   const url = `${process.env.REACT_APP_GITHUB_URL}/orgs/Angular`;
 
@@ -26,6 +21,7 @@ function Cards() {
         },
       });
 
+      // eslint-disable-next-line no-unused-vars
       const data = await result.data;
       setAngularData([]);
 
@@ -103,15 +99,14 @@ function Cards() {
       setAngularData(sortedUsers);
 
       setIsLoading(false);
-
-      console.log(result);
     } catch (error) {
-      console.log(error);
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     getAngularContributors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -122,79 +117,37 @@ function Cards() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const sortByContributions = (e) => {
-    const sortedContributions = [...angularData];
-    sortedContributions.sort((a, b) =>
-      a.contribution < b.contribution
-        ? 1
-        : b.contribution < a.contribution
-        ? -1
-        : 0
-    );
-
-    setAngularData(sortedContributions);
-  };
-
-  const sortByFollowers = () => {
-    const sortedFollowers = [...angularData];
-    sortedFollowers.sort((a, b) =>
-      a.followers < b.followers ? 1 : b.followers < a.followers ? -1 : 0
-    );
-
-    setAngularData(sortedFollowers);
-  };
-
-  const sortByPublicRepos = () => {
-    const sortedPublicRepos = [...angularData];
-    sortedPublicRepos.sort((a, b) =>
-      a.public_repos < b.public_repos
-        ? 1
-        : b.public_repos < a.public_repos
-        ? -1
-        : 0
-    );
-
-    setAngularData(sortedPublicRepos);
-  };
-
-  const sortByPublicGists = () => {
-    const sortedPublicGists = [...angularData];
-    sortedPublicGists.sort((a, b) =>
-      a.public_gists < b.public_gists
-        ? 1
-        : b.public_gists < a.public_gists
-        ? -1
-        : 0
-    );
-
-    setAngularData(sortedPublicGists);
-
-    console.log(angularData);
-  };
-
   return (
     <div>
-      <div className="container-fluid">
-        {/* <div className="wrapper"> */}
-        <div className="row">
-          {angularData.length > 0 &&
-            angularData.map((contributors) => (
-              <div className="col-md-3 mb-4">
-                <CardUI
-                  contributors={contributors}
-                  key={contributors.id}
-                  img={contributors.avatarUrl}
-                  title={contributors.name}
-                  contributions={contributors.contribution}
-                  followers={contributors.followers}
-                  publicRepos={contributors.public_repos}
-                  publicGists={contributors.public_gists}
-                  // data={angularData}
-                />
-              </div>
-            ))}
+      {isLoading ? (
+        <div className="loader">
+          <TailSpin ariaLabel="loading-indicator" />
         </div>
-      </div>
+      ) : (
+        <div>
+          <div className="container d-flex mt-5">
+            <div className="row">
+              {angularData.length > 0 &&
+                angularData.map((contributors, id) => (
+                  <div
+                    className="justify-content-center mt-2 mb-2 col-lg-3 col-md-4 d-flex col-sm-6"
+                    key={id}
+                  >
+                    <CardUI
+                      contributors={contributors}
+                      img={contributors.avatarUrl}
+                      title={contributors.name}
+                      contributions={contributors.contribution}
+                      followers={contributors.followers}
+                      publicRepos={contributors.public_repos}
+                      publicGists={contributors.public_gists}
+                    />
+                  </div>
+                ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

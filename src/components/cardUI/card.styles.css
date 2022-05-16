@@ -20,11 +20,7 @@ body {
   padding-top: 6rem;
 }
 
-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-gap: 1.5rem;
-  justify-items: center;
-  color: rgba(3, 3, 3, 0.81);
-  padding: 9rem 3rem;
+.loader {
+  margin: 0 auto;
+  width: fit-content;
 }

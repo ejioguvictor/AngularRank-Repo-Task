@@ -1,21 +1,20 @@
-import React from 'react'
-import Cards from '../components/cardUI/Cards'
-import Footer from '../components/footer/Footer'
-import NavBar from '../components/navbar'
+import React from "react";
+import Footer from "../components/footer/Footer";
+import LandingPage from "../components/landingPage";
+import NavBar from "../components/navbar";
 
 function Home() {
   return (
     <React.Fragment>
       <>
-        <div className='container-fluid'>
+        <div className="container-fluid">
           <NavBar />
         </div>
-        <Cards />
+        <LandingPage />
         <Footer />
       </>
     </React.Fragment>
-  )
+  );
 }
 
-export default Home
-
+export default Home;

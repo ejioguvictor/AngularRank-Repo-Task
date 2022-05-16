@@ -10,8 +10,6 @@ const UserProfile = () => {
   const { contributors } = location.state;
   const [reposUrl, setRepo] = useState([]);
 
-  console.log(contributors, "****");
-
   const fetchContributors = useCallback(async () => {
     const repoResponse = await fetch(contributors.repos_url, {
       headers: {

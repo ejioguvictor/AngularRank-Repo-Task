@@ -25,11 +25,11 @@ import Cards from "./components/cardUI/Cards";
 import Navbar from "./components/navbar";
 // import Layout from "./components/Layout";
 // import Contributors from "./components/Contributors";
-// import Repository from "./components/Repository";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserProfilePage from "./pages/UserProfilePage";
 import Footer from "./components/footer/Footer";
 import Home from "./pages/Home";
+import ContributorRepo from "./components/repository/ContributorRepo";
 
 function App() {
   return (
@@ -53,7 +53,7 @@ function App() {
             element={
               <>
                 <Navbar />
-                {/* <Repository /> */}
+                <ContributorRepo />
                 <Footer />
               </>
             }

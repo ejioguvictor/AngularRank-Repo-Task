@@ -174,67 +174,27 @@ function Cards() {
 
   return (
     <div>
-      {angularData.length > 0 &&
-        angularData.map((contributors) => (
-          // <div className="container-fluid d-grid justify-content-center">
-          <div className="wrapper">
-            {/* <div className="row"> */}
-            {/* <div className="wrapper"> */}
-
-            <CardUI
-              contributors={contributors}
-              key={contributors.id}
-              img={contributors.avatarUrl}
-              title={contributors.name}
-              contributions={contributors.contribution}
-              followers={contributors.followers}
-              publicRepos={contributors.public_repos}
-              publicGists={contributors.public_gists}
-              // data={angularData}
-            />
-            {/* <Link
-              className="btn btn-outline-success "
-              to={`/userprofile/${contributors.login}`}
-              state={{ contributors }}
-            >
-              <button className="btn">More Details</button>
-            </Link> */}
-
-            {/* </div> */}
-            {/* <div className="col-md-3 col-sm-6 mb-3">
-          <CardUI
-            img={img2}
-            title="QA"
-            contributions={20}
-            followers={200}
-            publicRepos={50}
-            publicGists={90}
-
-          />
+      <div className="container-fluid">
+        {/* <div className="wrapper"> */}
+        <div className="row">
+          {angularData.length > 0 &&
+            angularData.map((contributors) => (
+              <div className="col-md-3 mb-4">
+                <CardUI
+                  contributors={contributors}
+                  key={contributors.id}
+                  img={contributors.avatarUrl}
+                  title={contributors.name}
+                  contributions={contributors.contribution}
+                  followers={contributors.followers}
+                  publicRepos={contributors.public_repos}
+                  publicGists={contributors.public_gists}
+                  // data={angularData}
+                />
+              </div>
+            ))}
         </div>
-        <div className="col-md-3 col-sm-6 mb-3">
-          <CardUI
-            img={img3}
-            title="Frontend Dev"
-            contributions={20}
-            followers={200}
-            publicRepos={50}
-            publicGists={90}
-          />
-        </div>
-        <div className="col-md-3 col-sm-6 mb-3">
-          <CardUI
-            img={img3}
-            title="Software Dev"
-            contributions={20}
-            followers={200}
-            publicRepos={50}
-            publicGists={90}
-          />
-        </div> */}
-            {/* </div> */}
-          </div>
-        ))}
+      </div>
     </div>
   );
 }

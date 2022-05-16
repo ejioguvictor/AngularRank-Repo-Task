@@ -8,7 +8,7 @@ export default function NavBar() {
       className="navbar navbar-expand-lg navbar-light bg-light"
       style={{ backgroundColor: "#198754", border: "1px solid #ccc" }}
     >
-      <div className="container-fluid">
+      <div className="container-fluid ">
         <a className="navbar-brand" href="/">
           <img
             src={angular}
@@ -26,7 +26,7 @@ export default function NavBar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav ">
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/">
                 Home
